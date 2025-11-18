@@ -1,0 +1,952 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gurukul Vidyapeeth</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+    body {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      height: 100%;
+      overflow-x: hidden;
+    }
+
+    html {
+      height: 100%;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .hero-image {
+      max-width: 800px;
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+      margin-top: 20px;
+      border: 6px solid white;
+    }
+
+    .hero h1 {
+      margin: 0 0 10px 0;
+      font-size: 48px;
+      font-weight: 700;
+    }
+
+    .hero p {
+      margin: 0;
+      font-size: 20px;
+      opacity: 0.95;
+    }
+
+    .navigation {
+      background: white;
+      padding: 15px 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-link {
+      color: #667eea;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link:hover {
+      background: #f0f0f0;
+      color: #764ba2;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    .section {
+      margin-bottom: 60px;
+      scroll-margin-top: 80px;
+    }
+
+    .section-title {
+      font-size: 36px;
+      color: #333;
+      margin-bottom: 30px;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .about-content {
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      line-height: 1.8;
+      font-size: 18px;
+      color: #555;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    }
+
+    .card-icon {
+      font-size: 48px;
+      margin-bottom: 15px;
+    }
+
+    .card-title {
+      font-size: 22px;
+      color: #333;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .card-text {
+      color: #666;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .program-card {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 35px;
+      border-radius: 12px;
+      color: white;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .program-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(102, 126, 234, 0.3);
+    }
+
+    .program-icon {
+      font-size: 48px;
+      margin-bottom: 15px;
+    }
+
+    .program-title {
+      font-size: 22px;
+      margin-bottom: 10px;
+      font-weight: 600;
+      color: white;
+    }
+
+    .program-text {
+      color: rgba(255, 255, 255, 0.95);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    .contact-info {
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      font-size: 18px;
+      color: #555;
+    }
+
+    .contact-icon {
+      font-size: 24px;
+      margin-right: 15px;
+      color: #667eea;
+    }
+
+    footer {
+      background: #2d3748;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 60px;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: 16px;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    .subsection-title {
+      font-size: 24px;
+      color: #667eea;
+      margin-bottom: 15px;
+      margin-top: 25px;
+      font-weight: 600;
+    }
+
+    .two-column-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 10px 30px;
+      margin-left: 25px;
+      line-height: 1.8;
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body>
+  <div class="hero">
+   <h1 id="school-name">Gurukul Vidyapeeth</h1>
+   <p id="school-motto">Excellence in Education</p><img src="https://meaningful-teal-4dmcazaugg.edgeone.app/20251118_230631.jpg" alt="Gurukul Vidyapeeth School" class="hero-image" onerror="this.style.display='none'; this.alt='Image failed to load';">
+  </div>
+  <nav class="navigation"><a href="#introduction" class="nav-link">Introduction</a> <a href="#location" class="nav-link">Location</a> <a href="#aims" class="nav-link">Aims</a> <a href="#founder" class="nav-link">Founder</a> <a href="#academic" class="nav-link">Academic</a> <a href="#curriculum" class="nav-link">Curriculum</a> <a href="#values" class="nav-link">Values</a> <a href="#features" class="nav-link">Features</a> <a href="#transport" class="nav-link">Transport</a> <a href="#timing" class="nav-link">Timing</a> <a href="#uniform" class="nav-link">Uniform</a> <a href="#admission" class="nav-link">Admission</a> <a href="#labs" class="nav-link">Labs</a> <a href="#activities" class="nav-link">Activities</a> <a href="#contact" class="nav-link">Contact</a>
+  </nav>
+  <div class="container"><!-- 1. Introduction -->
+   <section id="introduction" class="section">
+    <h2 class="section-title">📚 Introduction</h2>
+    <div class="about-content">
+     <p>GURUKUL VIDYAPEETH is a unique English medium Co-educational Public School, affiliated to C.B.S.E Delhi. It runs under the direct control of Gurukul Educational and Welfare Trust (GEWT) and under guidance of a team of the most reputed Principals of the prestigious public schools of India. The courses of study are the same as prescribed by the Central Board of Secondary Education, Delhi.</p>
+    </div>
+   </section><!-- 2. Location -->
+   <section id="location" class="section">
+    <h2 class="section-title">📍 Location</h2>
+    <div class="about-content">
+     <p style="margin-bottom: 30px;">The school is strategically located in a peaceful and pollution-free environment, providing an ideal atmosphere for learning and development. Our campus is easily accessible from major parts of the city while maintaining a serene educational environment conducive to focused study and holistic growth.</p>
+     <h3 class="subsection-title">Our Campuses</h3>
+    </div>
+    <div class="cards-grid" style="margin-top: 30px;">
+     <div class="card" style="text-align: center;">
+      <div class="card-icon">
+       🏫
+      </div>
+      <h3 class="card-title">Gurukul Vidyapeeth (Main Branch)</h3>
+      <p class="card-text" style="margin-bottom: 20px;">Our primary campus with comprehensive facilities for all grades</p><button onclick="window.open('https://maps.google.com/?q=Gurukul+Vidyapeeth+Main+Branch+Hajipur+Bihar', '_blank')" style="display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 12px 24px; border-radius: 8px; border: none; font-weight: 600; font-size: 16px; cursor: pointer; transition: transform 0.3s ease;">📍 View on Map</button>
+     </div>
+     <div class="card" style="text-align: center;">
+      <div class="card-icon">
+       📚
+      </div>
+      <h3 class="card-title">Gurukul Vidyapeeth and Classes</h3>
+      <p class="card-text" style="margin-bottom: 20px;">Branch campus at Anjanpeer Chauraha, Hajipur with foundation courses</p><button onclick="window.open('https://maps.google.com/?q=Anjanpeer+Chauraha+Hajipur+Bihar', '_blank')" style="display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 12px 24px; border-radius: 8px; border: none; font-weight: 600; font-size: 16px; cursor: pointer; transition: transform 0.3s ease;">📍 View on Map</button>
+     </div>
+     <div class="card" style="text-align: center;">
+      <div class="card-icon">
+       👧
+      </div>
+      <h3 class="card-title">Gurukul Girls' High School &amp; Primary School</h3>
+      <p class="card-text" style="margin-bottom: 20px;">Dedicated campus for girls' education and primary schooling</p><button onclick="window.open('https://maps.google.com/?q=Gurukul+Girls+High+School+Hajipur+Bihar', '_blank')" style="display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 12px 24px; border-radius: 8px; border: none; font-weight: 600; font-size: 16px; cursor: pointer; transition: transform 0.3s ease;">📍 View on Map</button>
+     </div>
+    </div>
+   </section><!-- 3. Aims and Objectives -->
+   <section id="aims" class="section">
+    <h2 class="section-title">🎯 Aims and Objectives</h2>
+    <div class="about-content">
+     <p style="margin-bottom: 20px;">To meet the urgent need of society, the GURUKUL EDUCATIONAL &amp; WELFARE TRUST has come forward with courage and confidence to establish an English medium, co-educational school of academic excellence with boarding facilities. GURUKUL VIDYAPEETH is determined to maintain high standards by imparting quality education and dispelling the darkness of inadequate learning.</p>
+     <p style="margin-bottom: 20px;">Education is much more than instruction or tuition. It implies the development of special and general abilities of mind - learning to know and apply. It is an act or process of imparting or acquiring general knowledge and developing the power of reasoning and judgment, building sound character, and developing skills, habits, and attitudes.</p>
+     <p style="font-weight: 600; margin-bottom: 15px; color: #667eea;">Our Key Objectives:</p>
+    </div>
+    <div class="cards-grid">
+     <div class="card">
+      <div class="card-icon">
+       🏛️
+      </div>
+      <h3 class="card-title">Cultural Awareness</h3>
+      <p class="card-text">To make children aware of our rich culture and preserve all that is valuable therein.</p>
+     </div>
+     <div class="card">
+      <div class="card-icon">
+       ✨
+      </div>
+      <h3 class="card-title">Explore Potential</h3>
+      <p class="card-text">To explore the inherent qualities of each child and make use of them by providing wide and satisfying opportunities in and outside school.</p>
+     </div>
+     <div class="card">
+      <div class="card-icon">
+       🧠
+      </div>
+      <h3 class="card-title">Balanced Development</h3>
+      <p class="card-text">To develop children as rational human beings by developing their minds, making them dynamic, and helping them develop balanced personalities.</p>
+     </div>
+     <div class="card">
+      <div class="card-icon">
+       🇮🇳
+      </div>
+      <h3 class="card-title">National Values</h3>
+      <p class="card-text">To promote high ideals of nationalism and instill strong values of citizenship and social responsibility.</p>
+     </div>
+    </div>
+   </section><!-- 4. Founder -->
+   <section id="founder" class="section">
+    <h2 class="section-title">👨‍💼 Founder</h2>
+    <div class="about-content">
+     <p style="margin-bottom: 25px;">"GURUKUL VIDYAPEETH" is a public school and its principal founder is "GURUKUL EDUCATIONAL &amp; WELFARE TRUST" which has its proven record of quality education.</p>
+     <h3 class="subsection-title">Academic Council</h3>
+     <p style="margin-bottom: 25px;">The apex body of administrative structure is the academic council. The members of the council are known for their vision and experience. They are highly respectable people known for their integrity, dedication and service to the cause of school education. They are oriented towards the problems of present day education and share their experience for the rapid growth of the school. They formulate the policy of education to be implemented and all major policy decisions are taken with consultation of the academic council, which consists a group of retired Principals of the most prestigious schools of India.</p>
+     <h3 class="subsection-title">Expert Guidance Team</h3>
+     <p style="margin-bottom: 25px;">The school benefits from guidance provided by experienced educators and administrators who bring decades of expertise in educational excellence and institutional development.</p>
+     <h3 class="subsection-title">Principal's Leadership</h3>
+     <p>Our Principal <strong>Mr. Santosh Kumar</strong> remains in close contact of educational promotion schemes being carried out by national and international organizations recently. The School Principal ownself looks after the educational and auxiliary services being provided to the boarders.</p>
+    </div>
+   </section><!-- 5. Academic -->
+   <section id="academic" class="section">
+    <h2 class="section-title">🎓 Academic Programs</h2>
+    <div class="about-content" style="margin-bottom: 30px;">
+     <p style="margin-bottom: 15px;"><strong>The School has been upgraded to Senior Secondary in 2013</strong> and it runs with full swing with an eye on preparation for medical and engineering courses.</p>
+     <p style="margin-bottom: 15px;">Our Senior secondary section is running with an eye on the need of the day (i.e special Guidance for medical and engineering admission) which takes periodic assignment and topical test in standard of all India level tutorials. Some of our students are selected for JEE examination which were reflected in local newspaper.</p>
+     <p><strong>Branch Campus:</strong> In a recent development the school has extended its branch to <strong>ANJANPEER CHAURAHA, HAJIPUR</strong> where class of Nc. to IX, XI are running as a sisterly unit of main branch.</p>
+    </div>
+    <div class="programs-grid">
+     <div class="program-card">
+      <div class="program-icon">
+       🎓
+      </div>
+      <h3 class="program-title">Primary Education</h3>
+      <p class="program-text">Classes 1-5 with focus on foundational learning, creativity, and character building through activity-based learning methodologies.</p>
+     </div>
+     <div class="program-card">
+      <div class="program-icon">
+       📖
+      </div>
+      <h3 class="program-title">Middle School</h3>
+      <p class="program-text">Classes 6-8 offering comprehensive curriculum with emphasis on critical thinking and skill development.</p>
+     </div>
+     <div class="program-card">
+      <div class="program-icon">
+       🔬
+      </div>
+      <h3 class="program-title">Secondary Education</h3>
+      <p class="program-text">Classes 9-10 preparing students for board examinations with experienced faculty and personalized attention.</p>
+     </div>
+     <div class="program-card">
+      <div class="program-icon">
+       ���
+      </div>
+      <h3 class="program-title">Senior Secondary</h3>
+      <p class="program-text">Classes 11-12 with Science, Commerce, and Arts streams. Upgraded in 2013 with special focus on medical and engineering entrance preparation.</p>
+     </div>
+    </div>
+   </section><!-- 6. Curriculum and Course -->
+   <section id="curriculum" class="section">
+    <h2 class="section-title">📖 Affiliation: Curriculum and Course</h2>
+    <div class="about-content">
+     <p>GURUKUL VIDYAPEETH is affiliated to Central Board of Secondary Education, Delhi upto +2 level and follows the curriculum and syllabus based on the Board.</p>
+    </div>
+   </section><!-- 7. Neo Humanistic Outlook -->
+   <section id="values" class="section">
+    <h2 class="section-title">💫 Our Neo Humanistic Outlook &amp; Ambition Towards Value Education</h2>
+    <div class="about-content">
+     <p style="margin-bottom: 20px;">The Philosophy of Neo-Humanistic education is based on extending the inherent love of human beings to all people, animals, plants and the inanimate world. This outlook is ideally suited to the needs and changing vision of today's society with its shifts from a mechanistic world view to one based on holistic and collective harmony.</p>
+     <p style="margin-bottom: 20px;">We aim to provide programme in which children will develop a universal outlook, free from all discrimination. They come to embrace all people as one human family, regardless of race, religion, colour, creed or gender. Through such activities as gardening, nature studies and care for animals, a true ecological consciousness guides them to protect and nurture their environment and realize their inter-relationship with nature. Cultivation of the arts and music is encouraged and children are provided with a congenial environment in order to awaken their creative potential.</p>
+     <p>Neo-Humanistic education promotes unity in diversity, the use of science and technology for the welfare of all and maintaining an ecologically balanced world. By cultivating this universal outlook, Neo-Humanistic education strives to check the growth of narrow sentiments and exploitation which currently divide the world. We believe in rationality and not superstition, dogma or fanaticism. We aim to tap the unique capacity of human beings to think rationally, creatively and intuitively.</p>
+    </div>
+   </section><!-- 8. Special Features -->
+   <section id="features" class="section">
+    <h2 class="section-title">⭐ Special Features</h2>
+    <div class="cards-grid">
+     <div class="card">
+      <div class="card-icon">
+       👨‍🏫
+      </div>
+      <h3 class="card-title">Experienced Faculty</h3>
+      <p class="card-text">Highly qualified and dedicated teachers with specialized training, committed to student success and continuous professional development.</p>
+     </div>
+     <div class="card">
+      <div class="card-icon">
+       🏫
+      </div>
+      <h3 class="card-title">Modern Infrastructure</h3>
+      <p class="card-text">Well-equipped classrooms, laboratories, sports facilities, and modern amenities for holistic development and comfortable learning environment.</p>
+     </div>
+     <div class="card">
+      <div class="card-icon">
+       📚
+      </div>
+      <h3 class="card-title">Comprehensive Curriculum</h3>
+      <p class="card-text">CBSE curriculum with perfect balance of academics, sports, arts, and extracurricular activities ensuring all-round development.</p>
+     </div>
+     <div class="card">
+      <div class="card-icon">
+       🎯
+      </div>
+      <h3 class="card-title">Individual Attention</h3>
+      <p class="card-text">Small class sizes ensuring personalized attention to each student, regular assessments, and customized learning support.</p>
+     </div>
+    </div>
+   </section><!-- 9. Transport Facility -->
+   <section id="transport" class="section">
+    <h2 class="section-title">🚌 Transport Facility</h2>
+    <div class="about-content">
+     <p style="font-size: 20px; font-weight: 600;">Transport facility is available on all the routes.</p>
+    </div>
+   </section><!-- 10. School Timing -->
+   <section id="timing" class="section">
+    <h2 class="section-title">⏰ School Timing</h2>
+    <div class="about-content">
+     <h3 class="subsection-title">Winter</h3>
+     <p style="margin-bottom: 25px; font-size: 20px; font-weight: 600;">9.00 AM to 2.30 PM</p>
+     <h3 class="subsection-title">Summer</h3>
+     <p style="margin-bottom: 25px; font-size: 20px; font-weight: 600;">8.30 AM to 2.00 PM</p>
+     <p style="margin-bottom: 15px; font-style: italic; color: #666;">School timing may change after prior information.</p>
+     <p style="background: #fff3cd; padding: 20px; border-radius: 8px; border-left: 4px solid #ffc107; font-weight: 600;">Late arrival to school (i.e. after 9.00 am in winter and 8.30am in the summer) is not allowed. The child shall be sent back home (on parents risk &amp; responsibility), if he/she arrives late to school.</p>
+    </div>
+   </section><!-- 11. School Uniform -->
+   <section id="uniform" class="section">
+    <h2 class="section-title">👕 School Uniform</h2>
+    <div class="about-content">
+     <h3 class="subsection-title">SUMMER:</h3>
+     <p style="margin-bottom: 15px;"><strong>FOR BOYS:</strong> Black Pant, Red Shirt, Black Shoes, White Socks, Tie and Belt.</p>
+     <p style="margin-bottom: 25px;"><strong>FOR GIRLS:</strong> Black Skirt, Red Shirt, Black Shoes, White Socks, Tie and Belt.</p>
+     <h3 class="subsection-title">WINTER:</h3>
+     <p style="margin-bottom: 15px;"><strong>FOR BOYS:</strong> Black Pant, Red Shirt, Red Half/full Sweater or Red Blazer, Black Shoes, White Socks, Tie and Belt.</p>
+     <p style="margin-bottom: 25px;"><strong>FOR GIRLS:</strong> Black Skirt, Red Shirt, Red Half / full Sweater or Red Blazer, Black Shoes, White Socks, Tie and Belt.</p>
+     <p style="margin-bottom: 20px; font-weight: 600; background: #fff3cd; padding: 15px; border-radius: 8px;"><strong>NB.</strong> White fitting for boys &amp; girls with white shoes on wednesday &amp; saturday.</p>
+     <p style="margin-bottom: 15px; font-weight: 600;">School uniform must contain the approved design and monogram.</p>
+     <p style="margin-bottom: 15px;">Every student has to come to school in proper uniform. Parents are requested to see that their ward(s) come to school in proper school uniform. A pupil can be sent back home on the responsibility of parents/guardians, if he/she is not in proper school uniform, polished shoes well groomed hair and properly trimmed nails.</p>
+    </div>
+   </section><!-- 12. Admission -->
+   <section id="admission" class="section">
+    <h2 class="section-title">📝 Admission</h2>
+    <div class="about-content">
+     <p style="margin-bottom: 15px;"><strong>(a)</strong> Admission will be open for those classes in which the vacancies will be cropping up.</p>
+     <p style="margin-bottom: 15px;"><strong>(b)</strong> The candidates are selected for admission after qualifying a written test/interview or both.</p>
+     <p style="margin-bottom: 15px;"><strong>(c)</strong> The academic session will commence from April every year.</p>
+     <p style="margin-bottom: 15px;"><strong>(d)</strong> A child must have completed 06 years of age for admission to Class-I as on 31 March. Age for other classes can be calculated accordingly. The photocopy for proof of age (Birth Certificate issued by Municipal Corporation, Panchayat, Hospital/Nursing Home duly attested by a competent authority and school leaving certificate). Two recent passport size colour photographs each of the candidate and his/her parent/legal guardian.</p>
+     <p style="margin-bottom: 15px;"><strong>(e)</strong> Any chronic and communicable disease is held as bar to admission.</p>
+     <p style="margin-bottom: 15px;"><strong>(g)</strong> Students belonging to indecent as well as non-serious parent will not be admitted or may be discontinued even after admission also.</p>
+     <p style="margin-bottom: 15px;">Students after joining the school, if found undesirable due to any harmful habits are liable to be discontinued.</p>
+     <p style="margin-bottom: 15px;">25% seats are reserved in class 1 for the children belonging to BPL category or for the instructions of the Govt. of Bihar/India.</p>
+     <p style="margin-bottom: 15px;"><strong>(k)</strong> The School is keeping up with the RTE Act 2009. Admissions in this connection are taken by relevant process. The aspirants may contact school office in march every year.</p>
+    </div>
+   </section><!-- 13-15. Labs Section -->
+   <section id="labs" class="section">
+    <h2 class="section-title">🔬 Laboratory Facilities</h2>
+    <div class="about-content">
+     <h3 class="subsection-title">Computer Lab</h3>
+     <p style="margin-bottom: 25px;">The school has a well furnished computer lab keeping up with the need of the time. We have arranged and installed the latest computer sets with colored monitors and internet facilities to serve the purpose of the students. A large number of educational CDs are also available in the computer lab. Students also get the opportunity to open the internet to access different web sites. Computer classes are compulsory for all students right from std-1 onwards.</p>
+     <h3 class="subsection-title">Mathematics Lab</h3>
+     <p style="margin-bottom: 25px;">Mathematics laboratory is also fully equipped with required apparatus for practical work to the students.</p>
+     <h3 class="subsection-title">Science Lab</h3>
+     <p>To maintain and honour the scientific temperament of the youths the school is well equipped in advance. It has got three separate laboratories for Physics, Chemistry &amp; Biology.</p>
+    </div>
+   </section><!-- 16. Excursion -->
+   <section id="excursion" class="section">
+    <h2 class="section-title">🗺️ Trip &amp; Excursion</h2>
+    <div class="about-content">
+     <p style="margin-bottom: 15px;">This is the regular feature of the school. Students go on educational excursions to break the monotony from their day to day affairs. Students are sent on education trips preferably to the Historical places, Biological Parks, science centres and other natural sites along with teachers &amp; guides.</p>
+     <p>Trip &amp; Excursion to places of historic &amp; scientific importance of India are organized time to time to broaden the minds of the Students.</p>
+    </div>
+   </section><!-- 17-18. Cultural Activities & Sports -->
+   <section id="activities" class="section">
+    <h2 class="section-title">🎭 Cultural Activities</h2>
+    <div class="about-content">
+     <p style="margin-bottom: 20px;">The school has an independent music department which is guided by a group of expert music and dance teachers. The school has adequate facilities for conducting cultural programmes. Instrumental music, vocal music and dance are the regular features.</p>
+    </div>
+    <h2 class="section-title" style="margin-top: 60px;">⚽ Games &amp; Sports</h2>
+    <div class="about-content">
+     <p style="margin-bottom: 20px;">The school aims to make its pupils self-reliant and responsible by training them in leadership through games and sport. Regular games, physical training, regular exercise and yoga are compulsory for all the students. The school has a separate playground and provides facilities for all popular games like football, volleyball, cricket, hockey, basketball and athletics. Facilities are available for lawn tennis, badminton, table tennis, gymnastics, karate and yoga asanas.</p>
+    </div>
+   </section><!-- 19. Library -->
+   <section id="library" class="section">
+    <h2 class="section-title">📚 Library and Resource Centre</h2>
+    <div class="about-content">
+     <p style="margin-bottom: 20px;">The school understands the desired need that the library should be enriched with the latest books in order to provide students with a huge platform to cope with the latest syllabus. The school library is an integral part of a good methodological teaching. The reading room of the library is furnished with the required furniture and fittings.</p>
+    </div>
+   </section><!-- 20. Important Note -->
+   <section id="note" class="section">
+    <h2 class="section-title">⚠️ Important Note</h2>
+    <div class="about-content" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+     <p style="margin-bottom: 20px;">Strict regularity and punctuality, implicit obedience, courtesy in speech and conduct, cleanliness of person and dress are expected from all the pupils. Parents and students are asked to co-operate with the school authorities regarding the instructions, rules and regulations, discipline and timely payment of fee etc.</p>
+     <p style="margin-bottom: 20px;">Guardians are requested to see the school diaries of their wards regularly. The behavior of any indecent parents will not be tolerated. Any grievance may be considered/ redressed only on parents' written as well as decent request if it is found genuine and do not affect other students/parents. We maintain strict discipline in campus among all boys and girls.</p>
+    </div>
+   </section><!-- 21. Discipline -->
+   <section id="discipline" class="section">
+    <h2 class="section-title">📜 Discipline</h2>
+    <div class="about-content">
+     <p style="margin-bottom: 20px;">All students are expected to maintain a high standard of school discipline. Students will have to be gentle and polite in and outside the school. The school authorities reserve the right of asking a student to leave the school at once, if in their opinion his/her stay in school is detrimental to the school discipline.</p>
+     <h3 class="subsection-title">Important Note</h3>
+     <p style="margin-bottom: 20px;">Strict regularity and punctuality, implicit obedience, courtesy in speech and conduct, cleanliness of person and dress are expected from all the pupils. Parents and students are asked to co-operate with the school authorities regarding the instructions, rules and regulations, discipline and timely payment of fee etc.</p>
+     <p style="margin-bottom: 20px;">Guardians are requested to see the school diaries of their wards regularly. The behavior of any indecent parents will not be tolerated. Any grievance may be considered/ redressed only on parents' written as well as decent request if it is found genuine and do not affect other students/parents. We maintain strict discipline in campus among all boys and girls.</p>
+    </div>
+   </section><!-- 22. Salient Features and Facilities -->
+   <section id="salient-features" class="section">
+    <h2 class="section-title">✨ Salient Features and Facilities</h2>
+    <div class="cards-grid">
+     <div class="card">
+      <div class="card-icon">
+       ✅
+      </div>
+      <h3 class="card-title">CBSE Affiliation</h3>
+      <p class="card-text">Officially recognized by Central Board of Secondary Education with comprehensive, progressive curriculum and modern assessment system.</p>
+     </div>
+     <div class="card">
+      <div class="card-icon">
+       ✅
+      </div>
+      <h3 class="card-title">Qualified Faculty</h3>
+      <p class="card-text">Highly experienced and trained teachers with specialized subject knowledge and dedication to student success and personal growth.</p>
+     </div>
+     <div class="card">
+      <div class="card-icon">
+       ✅
+      </div>
+      <h3 class="card-title">Smart Classrooms</h3>
+      <p class="card-text">Smart classes have been included in the syllabus. Technology-enabled learning spaces with digital boards, projectors, audio-visual systems, and multimedia resources for interactive education.</p>
+     </div>
+     <div class="card">
+      <div class="card-icon">
+       ✅
+      </div>
+      <h3 class="card-title">Well-Equipped Labs</h3>
+      <p class="card-text">Modern science, computer, and mathematics laboratories with latest equipment for practical, hands-on learning experiences.</p>
+     </div>
+     <div class="card">
+      <div class="card-icon">
+       ✅
+      </div>
+      <h3 class="card-title">Extensive Library</h3>
+      <p class="card-text">Vast collection of 10,000+ books, journals, magazines, digital resources, and quiet study spaces for academic enrichment.</p>
+     </div>
+     <div class="card">
+      <div class="card-icon">
+       ✅
+      </div>
+      <h3 class="card-title">Sports Facilities</h3>
+      <p class="card-text">Comprehensive indoor and outdoor sports infrastructure with professional coaching for cricket, football, basketball, athletics, and more.</p>
+     </div>
+     <div class="card">
+      <div class="card-icon">
+       ✅
+      </div>
+      <h3 class="card-title">Safe Transport</h3>
+      <p class="card-text">GPS-enabled fleet of buses with trained drivers, female attendants, and real-time tracking ensuring complete student safety.</p>
+     </div>
+     <div class="card">
+      <div class="card-icon">
+       ✅
+      </div>
+      <h3 class="card-title">Value Education</h3>
+      <p class="card-text">Holistic development program focusing on character building, moral values, ethics, and creating responsible global citizens.</p>
+     </div>
+     <div class="card">
+      <div class="card-icon">
+       ✅
+      </div>
+      <h3 class="card-title">Medical Facilities</h3>
+      <p class="card-text">Regular Medical Check-up by Health Expert. On-campus medical room with first aid, regular health check-ups, and immediate emergency response system.</p>
+     </div>
+     <div class="card">
+      <div class="card-icon">
+       ✅
+      </div>
+      <h3 class="card-title">Cafeteria</h3>
+      <p class="card-text">Hygienic cafeteria providing nutritious, balanced meals and snacks in clean, comfortable dining environment.</p>
+     </div>
+     <div class="card">
+      <div class="card-icon">
+       ✅
+      </div>
+      <h3 class="card-title">Security</h3>
+      <p class="card-text">24/7 security surveillance with CCTV cameras, trained security personnel, and controlled access ensuring safe campus.</p>
+     </div>
+     <div class="card">
+      <div class="card-icon">
+       ✅
+      </div>
+      <h3 class="card-title">Career Counseling</h3>
+      <p class="card-text">Professional guidance for career planning, higher education, competitive exams, and skill development programs.</p>
+     </div>
+     <div class="card">
+      <div class="card-icon">
+       ✅
+      </div>
+      <h3 class="card-title">IIT/Medical Preparation</h3>
+      <p class="card-text">Preparation for IIT, Medical, AIEEE, from class VII onwards by ex Students / Teachers of IIT and Science College, Patna. No extra fee for coaching of XI &amp; XII.</p>
+     </div>
+     <div class="card">
+      <div class="card-icon">
+       ✅
+      </div>
+      <h3 class="card-title">Foundation Courses</h3>
+      <p class="card-text">Coaching classes for Std VI to X and entrance examinations like medical &amp; engineering. Foundation course with lessons from eminent series like PEARSON available for nominal fee.</p>
+     </div>
+     <div class="card">
+      <div class="card-icon">
+       ✅
+      </div>
+      <h3 class="card-title">Hostel Facility</h3>
+      <p class="card-text">Well established hostel where children are served with most hygienic physical, metaphysical and psychological treatment in their daily routine under Principal's direct supervision.</p>
+     </div>
+    </div>
+   </section><!-- 23. Co-Curricular Activities -->
+   <section id="co-curricular" class="section">
+    <h2 class="section-title">Co-Curricular Activities</h2>
+    <div class="about-content">
+     <p style="margin-bottom: 25px;">Apart from academics, the school lays a special emphasis on co-curricular activities. These activities complement academic learning and help students discover and develop their talents, interests, leadership abilities, teamwork skills, and overall personality development.</p>
+     <p style="font-weight: 600; margin-bottom: 15px; color: #667eea;">Provision is made for the following activities:</p>
+    </div>
+    <div class="cards-grid">
+     <div class="card">
+      <div class="card-icon">
+       🧘
+      </div>
+      <h3 class="card-title">Yoga &amp; Meditation</h3>
+      <p class="card-text">Regular practice of yoga and meditation for physical fitness, mental peace, concentration, and overall well-being of students.</p>
+     </div>
+     <div class="card">
+      <div class="card-icon">
+       🎨
+      </div>
+      <h3 class="card-title">Art and Craft</h3>
+      <p class="card-text">Creative expression through various art forms including painting, sketching, clay modeling, exhibitions, and participation in competitions.</p>
+     </div>
+     <div class="card">
+      <div class="card-icon">
+       🧵
+      </div>
+      <h3 class="card-title">Needle Work and Embroidery</h3>
+      <p class="card-text">Traditional handicraft skills development through needle work, embroidery, stitching, and other textile arts.</p>
+     </div>
+     <div class="card">
+      <div class="card-icon">
+       🌱
+      </div>
+      <h3 class="card-title">Gardening and Flower Growing</h3>
+      <p class="card-text">Hands-on experience with nature through gardening activities, plant care, and understanding environmental conservation.</p>
+     </div>
+     <div class="card">
+      <div class="card-icon">
+       💬
+      </div>
+      <h3 class="card-title">Seminar</h3>
+      <p class="card-text">Student seminars on various topics to develop research skills, presentation abilities, and subject knowledge sharing.</p>
+     </div>
+     <div class="card">
+      <div class="card-icon">
+       🎤
+      </div>
+      <h3 class="card-title">Debate</h3>
+      <p class="card-text">Regular debates, group discussions to develop critical thinking, communication, and argumentative skills among students.</p>
+     </div>
+     <div class="card">
+      <div class="card-icon">
+       📖
+      </div>
+      <h3 class="card-title">Recitation</h3>
+      <p class="card-text">Poetry recitation, verse speaking competitions to develop voice modulation, expression, and public speaking confidence.</p>
+     </div>
+     <div class="card">
+      <div class="card-icon">
+       🗣️
+      </div>
+      <h3 class="card-title">Extempore</h3>
+      <p class="card-text">Impromptu speaking activities to enhance spontaneous thinking, quick response, and confident communication skills.</p>
+     </div>
+     <div class="card">
+      <div class="card-icon">
+       ����
+      </div>
+      <h3 class="card-title">Quizzes &amp; Antakshari Contest</h3>
+      <p class="card-text">General knowledge quizzes, Antakshari competitions, and various contests to enhance knowledge and cultural awareness.</p>
+     </div>
+     <div class="card">
+      <div class="card-icon">
+       🔤
+      </div>
+      <h3 class="card-title">Pronunciation &amp; Message Reading</h3>
+      <p class="card-text">Competitions focused on correct pronunciation, diction, and effective message delivery for better communication.</p>
+     </div>
+     <div class="card">
+      <div class="card-icon">
+       ✍️
+      </div>
+      <h3 class="card-title">Hand Writing Competition</h3>
+      <p class="card-text">Contests to improve and showcase beautiful handwriting, calligraphy, and presentation skills.</p>
+     </div>
+     <div class="card">
+      <div class="card-icon">
+       📻
+      </div>
+      <h3 class="card-title">News Broadcasts/Relay</h3>
+      <p class="card-text">School news reading, broadcasting activities to develop communication skills and awareness of current affairs.</p>
+     </div>
+     <div class="card">
+      <div class="card-icon">
+       📝
+      </div>
+      <h3 class="card-title">Essay Writing Contest</h3>
+      <p class="card-text">Regular essay writing competitions on various topics to enhance writing skills, creativity, and expression of thoughts.</p>
+     </div>
+     <div class="card">
+      <div class="card-icon">
+       📚
+      </div>
+      <h3 class="card-title">Story Writing Competition</h3>
+      <p class="card-text">Creative story writing activities to nurture imagination, narrative skills, and literary talents among students.</p>
+     </div>
+    </div>
+   </section><!-- Foundation Course -->
+   <section id="foundation" class="section">
+    <h2 class="section-title">Foundation Course &amp; Coaching</h2>
+    <div class="about-content">
+     <p style="margin-bottom: 20px;">A foundation course at <strong>ANJANPEER CHAURAHA Hajipur campus</strong> is running well with lessons being imparted from eminent series like <strong>PEARSON</strong> and others in secondary level. These courses are being carried out for the students of own school and other schools as well against a nominal fee.</p>
+     <p style="margin-bottom: 20px;"><strong>Key Features:</strong></p>
+     <ul style="line-height: 1.8; margin-left: 25px; margin-bottom: 20px;">
+      <li>Coaching classes for Std VI to X</li>
+      <li>Entrance examination preparation for medical &amp; engineering</li>
+      <li>No extra fee for coaching of XI &amp; XII students</li>
+      <li>Available for students from own school and other schools</li>
+      <li>Nominal fee structure</li>
+      <li>Lessons from renowned educational series like PEARSON</li>
+     </ul>
+     <p style="background: #e8f4f8; padding: 20px; border-radius: 8px; border-left: 4px solid #667eea;">This is an effort to cultivate and culminate discipline among the students who are being victims of many kinds of nuisance circumventing in company of ruffians in the name of private tuition and coaching institute running in market without any registered pattern.</p>
+    </div>
+   </section><!-- Contact Section -->
+   <section id="contact" class="section">
+    <h2 class="section-title">Contact Us</h2>
+    <div class="contact-info">
+     <div class="contact-item"><span class="contact-icon">📧</span> <span id="contact-email">gurukulvidyapeethhaj@yahoo.in</span>
+     </div>
+     <div class="contact-item"><span class="contact-icon">📞</span> <span id="contact-phone">+919931602179,+917673076349,+918002043766</span>
+     </div>
+     <div class="contact-item"><span class="contact-icon">📍</span> <span id="school_address">Rampur Nausahan, Nawada Chowk, Near Jadhua, Hajipur (Vaishali), Bihar, India</span>
+     </div>
+     <div class="contact-item"><span class="contact-icon">🕒</span> <span>Office Hours: Monday to Saturday, 9:00 AM - 3:00 PM</span>
+     </div>
+    </div>
+   </section>
+  </div>
+  <footer>
+   <p>© 2024 Gurukul Vidyapeeth. All rights reserved. | Affiliated to CBSE, Delhi | Affiliation No: 330280</p>
+  </footer>
+  <script>
+    const defaultConfig = {
+      school_name: "Gurukul Vidyapeeth",
+      school_motto: "Excellence in Education",
+      contact_email: "gurukulvidyapeethhaj@yahoo.in",
+      contact_phone: "+919931602179,+917673076349,+918002043766",
+      school_address: "Rampur Nausahan, Nawada Chowk, Near Jadhua, Hajipur (Vaishali), Bihar, India",
+      primary_color: "#667eea",
+      secondary_color: "#764ba2",
+      surface_color: "#ffffff",
+      text_color: "#333333",
+      accent_color: "#2d3748",
+      font_family: "Segoe UI",
+      font_size: 16
+    };
+
+    async function onConfigChange(config) {
+      const primaryColor = config.primary_color || defaultConfig.primary_color;
+      const secondaryColor = config.secondary_color || defaultConfig.secondary_color;
+      const surfaceColor = config.surface_color || defaultConfig.surface_color;
+      const textColor = config.text_color || defaultConfig.text_color;
+      const accentColor = config.accent_color || defaultConfig.accent_color;
+      const customFont = config.font_family || defaultConfig.font_family;
+      const baseSize = config.font_size || defaultConfig.font_size;
+
+      document.getElementById('school-name').textContent = config.school_name || defaultConfig.school_name;
+      document.getElementById('school-motto').textContent = config.school_motto || defaultConfig.school_motto;
+      document.getElementById('contact-email').textContent = config.contact_email || defaultConfig.contact_email;
+      document.getElementById('contact-phone').textContent = config.contact_phone || defaultConfig.contact_phone;
+      document.getElementById('contact-address').textContent = config.contact_address || defaultConfig.contact_address;
+
+      const hero = document.querySelector('.hero');
+      hero.style.background = `linear-gradient(135deg, ${primaryColor} 0%, ${secondaryColor} 100%)`;
+
+      const navLinks = document.querySelectorAll('.nav-link');
+      navLinks.forEach(link => {
+        link.style.color = primaryColor;
+      });
+
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        card.style.background = surfaceColor;
+      });
+
+      const aboutContents = document.querySelectorAll('.about-content');
+      aboutContents.forEach(content => {
+        content.style.background = surfaceColor;
+        content.style.color = textColor;
+      });
+
+      const contactInfo = document.querySelector('.contact-info');
+      contactInfo.style.background = surfaceColor;
+
+      const sectionTitles = document.querySelectorAll('.section-title');
+      sectionTitles.forEach(title => {
+        title.style.color = textColor;
+      });
+
+      const subsectionTitles = document.querySelectorAll('.subsection-title');
+      subsectionTitles.forEach(title => {
+        title.style.color = primaryColor;
+      });
+
+      const footer = document.querySelector('footer');
+      footer.style.background = accentColor;
+
+      const contactIcons = document.querySelectorAll('.contact-icon');
+      contactIcons.forEach(icon => {
+        icon.style.color = primaryColor;
+      });
+
+      const programCards = document.querySelectorAll('.program-card');
+      programCards.forEach(card => {
+        card.style.background = `linear-gradient(135deg, ${primaryColor} 0%, ${secondaryColor} 100%)`;
+      });
+
+      document.body.style.fontFamily = `${customFont}, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif`;
+      
+      document.querySelector('.hero h1').style.fontSize = `${baseSize * 3}px`;
+      document.querySelector('.hero p').style.fontSize = `${baseSize * 1.25}px`;
+      document.querySelectorAll('.nav-link').forEach(el => el.style.fontSize = `${baseSize * 0.875}px`);
+      document.querySelectorAll('.section-title').forEach(el => el.style.fontSize = `${baseSize * 2.25}px`);
+      document.querySelectorAll('.about-content').forEach(el => el.style.fontSize = `${baseSize * 1.125}px`);
+      document.querySelectorAll('.card-title').forEach(el => el.style.fontSize = `${baseSize * 1.375}px`);
+      document.querySelectorAll('.card-text').forEach(el => el.style.fontSize = `${baseSize}px`);
+      document.querySelectorAll('.contact-item').forEach(el => el.style.fontSize = `${baseSize * 1.125}px`);
+      document.querySelector('footer p').style.fontSize = `${baseSize}px`;
+      document.querySelectorAll('.subsection-title').forEach(el => el.style.fontSize = `${baseSize * 1.5}px`);
+    }
+
+    function mapToCapabilities(config) {
+      return {
+        recolorables: [
+          {
+            get: () => config.primary_color || defaultConfig.primary_color,
+            set: (value) => {
+              config.primary_color = value;
+              if (window.elementSdk) {
+                window.elementSdk.setConfig({ primary_color: value });
+              }
+            }
+          },
+          {
+            get: () => config.secondary_color || defaultConfig.secondary_color,
+            set: (value) => {
+              config.secondary_color = value;
+              if (window.elementSdk) {
+                window.elementSdk.setConfig({ secondary_color: value });
+              }
+            }
+          },
+          {
+            get: () => config.surface_color || defaultConfig.surface_color,
+            set: (value) => {
+              config.surface_color = value;
+              if (window.elementSdk) {
+                window.elementSdk.setConfig({ surface_color: value });
+              }
+            }
+          },
+          {
+            get: () => config.text_color || defaultConfig.text_color,
+            set: (value) => {
+              config.text_color = value;
+              if (window.elementSdk) {
+                window.elementSdk.setConfig({ text_color: value });
+              }
+            }
+          },
+          {
+            get: () => config.accent_color || defaultConfig.accent_color,
+            set: (value) => {
+              config.accent_color = value;
+              if (window.elementSdk) {
+                window.elementSdk.setConfig({ accent_color: value });
+              }
+            }
+          }
+        ],
+        borderables: [],
+        fontEditable: {
+          get: () => config.font_family || defaultConfig.font_family,
+          set: (value) => {
+            config.font_family = value;
+            if (window.elementSdk) {
+              window.elementSdk.setConfig({ font_family: value });
+            }
+          }
+        },
+        fontSizeable: {
+          get: () => config.font_size || defaultConfig.font_size,
+          set: (value) => {
+            config.font_size = value;
+            if (window.elementSdk) {
+              window.elementSdk.setConfig({ font_size: value });
+            }
+          }
+        }
+      };
+    }
+
+    function mapToEditPanelValues(config) {
+      return new Map([
+        ["school_name", config.school_name || defaultConfig.school_name],
+        ["school_motto", config.school_motto || defaultConfig.school_motto],
+        ["contact_email", config.contact_email || defaultConfig.contact_email],
+        ["contact_phone", config.contact_phone || defaultConfig.contact_phone],
+        ["contact_address", config.contact_address || defaultConfig.contact_address]
+      ]);
+    }
+
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    }
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a09b78c55610942',t:'MTc2MzQ5MjQ5Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
